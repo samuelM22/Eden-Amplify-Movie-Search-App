@@ -47,12 +47,12 @@ function showMovies(data) {
     movieEl.innerHTML = `
       <div class = "card shadow-sm">
         <img src="${IMG_URL + poster_path}" alt="${title}" class="bd-placeholder-img card-img-top img-fluid" width="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="${getColor(vote_average)}">${
-      Math.round(vote_average * 10) / 10
-    }</span>
+        <div class="movie-info card-body">
+          <div class="card-text">
+              <h6>${title}</h6>
+              <span class="${getColor(vote_average)}">${Math.round(vote_average * 10) / 10 }</span>
             </div>
+        </div>
       </div>
         `;
 
