@@ -43,19 +43,17 @@ function showMovies(data) {
   data.forEach((movie) => {
     const { title, poster_path, vote_average, overview } = movie;
     const movieEl = document.createElement("div");
-    movieEl.classList.add("movie");
+    movieEl.classList.add("col");
     movieEl.innerHTML = `
-        <img src="${IMG_URL + poster_path}" alt="${title}">
+      <div class = "card shadow-sm">
+        <img src="${IMG_URL + poster_path}" alt="${title}" class="bd-placeholder-img card-img-top img-fluid" width="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
         <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getColor(vote_average)}">${
       Math.round(vote_average * 10) / 10
     }</span>
             </div>
-            <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
-        </div>
+      </div>
         `;
 
     main.appendChild(movieEl);
