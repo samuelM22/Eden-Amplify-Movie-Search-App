@@ -18,6 +18,7 @@ function getMovies(url) {
     .then((res) => res.json())
     .then((data) => {
       showMovies(data.results);
+      console.log(data.results)
     });
 }
 
@@ -42,7 +43,7 @@ function getRecommendations(url) {
 function showMovies(data) {
   main.innerHTML = "";
   data.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    const { title, poster_path, vote_average, overview, release_date} = movie;
     const movieEl = document.createElement("div");
     movieEl.classList.add("col");
     movieEl.innerHTML = `
@@ -51,7 +52,16 @@ function showMovies(data) {
         <div class="movie-info card-body">
           <div class="card-text">
               <h6>${title}</h6>
-              <span class="${getColor(vote_average)}">${Math.round(vote_average * 10) / 10 }</span>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="consensus tight">
+                  <div class="outer_ring">
+                    <span class="votes ">${Math.round(vote_average * 10) / 10 }</span>
+                  </div>
+                </div>
+                <div class="">
+                  <p class="dates mt-3 text-muted">${release_date}</p>
+                </div>
+              </div>
             </div>
         </div>
       </div>
@@ -66,20 +76,6 @@ function showRecommendations(data) {
   data.forEach((movie) => {
     const { title, poster_path, vote_average, overview } = movie;
     const movieEl = document.createElement("div");
-    // movieEl.classList.add("movie");
-    // movieEl.innerHTML = `
-    //     <img src="${IMG_URL + poster_path}" alt="${title}">
-    //     <div class="movie-info">
-    //             <h3>${title}</h3>
-    //             <span class="${getColor(vote_average)}">${
-    //   Math.round(vote_average * 10) / 10
-    // }</span>
-    //         </div>
-    //         <div class="overview">
-    //             <h3>Overview</h3>
-    //             ${overview}
-    //     </div>
-    //     `;
 
     movieEl.classList.add("col");
     movieEl.innerHTML = `
@@ -89,7 +85,7 @@ function showRecommendations(data) {
           <div class="card-text">
               <h6>${title}</h6>
               <span class="${getColor(vote_average)}">${Math.round(vote_average * 10) / 10 }</span>
-            </div>
+          </div>
         </div>
       </div>
         `;
