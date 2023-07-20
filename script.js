@@ -10,6 +10,7 @@ const main = document.getElementById("main");
 const recommendations = document.getElementById("recommendations");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+const searchButton = document.getElementById("search-button");
 
 getMovies(API_URL);
 function getMovies(url) {
@@ -94,14 +95,19 @@ function getColor(vote) {
   }
 }
 
-form.addEventListener("submit", (e) => {
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const searchTerm = search.value;
+//   if (searchTerm) {
+//     getMovies(searchURL + "&query=" + searchTerm);
+//     getRecommendations(searchURL + "&query=" + searchTerm);
+//     recommendationsHeader.hidden = false;
+//   } else {
+//     getMovies(API_URL);
+//   }
+// });
+
+searchButton.addEventListener("click", (e) => {
   e.preventDefault();
-  const searchTerm = search.value;
-  if (searchTerm) {
-    getMovies(searchURL + "&query=" + searchTerm);
-    getRecommendations(searchURL + "&query=" + searchTerm);
-    recommendationsHeader.hidden = false;
-  } else {
-    getMovies(API_URL);
-  }
-});
+  
+})
