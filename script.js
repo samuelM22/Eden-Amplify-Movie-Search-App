@@ -95,18 +95,6 @@ function getColor(vote) {
   }
 }
 
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const searchTerm = search.value;
-//   if (searchTerm) {
-//     getMovies(searchURL + "&query=" + searchTerm);
-//     getRecommendations(searchURL + "&query=" + searchTerm);
-//     recommendationsHeader.hidden = false;
-//   } else {
-//     getMovies(API_URL);
-//   }
-// });
-
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   const searchTerm = search.value;
