@@ -84,7 +84,7 @@ function showRecommendations(data) {
         <div class="movie-info card-body">
           <div class="card-text">
               <h6>${title}</h6>
-              <span class="${getColor(vote_average)}">${Math.round(vote_average * 10) / 10 }</span>
+              <span class="${getColor(vote_average)}">${Number(vote_average).toFixed(2) }</span>
           </div>
         </div>
       </div>
